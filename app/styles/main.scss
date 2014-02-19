@@ -34,44 +34,112 @@ body {
     padding: 0.2em 0;
 }
 
-.edit-form {
-    width: 700px;
-    height: 400px;
-    margin: 20px auto;
+.btn {
+    height: 50px;
+    color: $text-color-dark;
+    font-size: 24px;
+    width: 100px;
+    border: none;
+    background: $lime-color;
+    margin: 10px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.main-contact {
+    background: $darker-background;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    @include transition(all 1s);
+    position: relative;
+    .edit-btn {
+        position: absolute;
+        right: 10px;
+    }
+    .name {
+        margin: 10px;
+    }
+    .bio {
+        text-align: left;
+    }
+    .avatar {
+        width: 200px;
+        @include border-radius(3px);
+    }
+    &.empty {
+        // height: 0px;
+    }
+}
+.add-new {
+    background: $darker-background;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    position: relative;
+    .add-new-btn {
+        width: 300px;
+    }
+}
+
+.edit-panel {
+    height: 475px;
+    background: $darker-background;
     padding: 0px;
+    margin: 0px;
+    width: 700px;
+    margin: -20px auto 20px;
     overflow: hidden;
     @include transition(all 1s);
+    text-align: center;
     &.collapse {
         height: 0px;
-    }    
+        margin-top: -100px;
+        margin-bottom: 100px;
+    }   
+}
+
+.edit-form {
+    width: 700px;
+    background: $darker-background;
+    height: 400px;
+    margin: 0px;
+    padding: 50px 0px 0px;
+    overflow: hidden;
+    text-align: center;
+ 
     .name {
         padding: 20px;
-        margin: 10px 0;
+        margin: 10px auto;
         color: $text-color-dark;
         font-size: 35px;
         border: none;
-        width: 94%;
+        width: 92%;
         display: block;
     }
     .phone {
         padding: 20px;
-        margin: 10px 0;
+        margin: 10px auto;
         color: $text-color-dark;
         font-size: 35px;
         border: none;
-        width: 94%;
+        width: 92%;
         display: block;
 
     }
     .bio {
-        width: 94%;
+        width: 92%;
         padding: 20px;
-        margin: 10px 0;
+        margin: 10px auto;
         color: $text-color-dark;
         font-size: 25px;
         border: none;
         display: block;
 
+    }
+    .done-btn {
+        width: 97%;
     }
 }
 
@@ -92,40 +160,22 @@ body {
     }
     .avatar {
         width: 100px;
-        @include border-radius(50%);
-    }
-
-}
-
-.main-contact {
-    position: relative;
-    margin: 10px;
-    padding: 20px;
-    @include transition(all 1s);
-    text-align: center;
-    background: $darker-background;
-    .name {
+        height: 100px;
+        @include border-radius(100%);
+        overflow: hidden;
         margin: 10px;
-    }
-    .bio {
-        text-align: left;
-    }
-    &.empty {
-        // height: 0px;
-    }
-    .avatar {
-        width: 200px;
-        @include border-radius(3px);
-    }
-    .add-new-btn {
-        border: none;
-        background: $lime-color;
-        height: 50px;
-        width: 100px;
-        margin: 10px;
-        &:hover {
-            cursor: pointer;
+        .avatar-pic {
+            width: 150px;
+            display: inline-block;
+            margin: 0px -25px;
         }
     }
+
+    .details {
+        margin: 10px;
+    }
+
 }
+
+
 

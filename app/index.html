@@ -29,25 +29,31 @@
 
         <div class="hero-unit">
             <div class="main-contact empty">
-                <input type="button" value="ADD" class="add-new-btn"/>
+
             </div>
-            <div class="edit-form collapse">
-                <input type="text" class="name" placeholder="type your name here or whatever..."/>
-                <input type="text" class="phone" placeholder="*siiiigh* this is for your phone number..." />
-                <textarea class="bio" placeholder="add biography data here... (or not)"></textarea>
+            <div class="add-new">
+                <input type="button" value="ADD" class="add-new-btn btn"/>
+            </div>
+            <div class="edit-panel collapse">
+                
+                    <!-- where the edit-form is injected  -->
+                
             </div>
             <div class="contacts-list">
               <!-- items get appended here -->
             </div>
         </div>
         <script type="text/template" id="list-item-template">
-            <img class="avatar" src="<%= avatar %>"/>
+            <div class="avatar">
+                <img class="avatar-pic" src="<%= avatar %>"/>
+            </div>
             <div class="details">
                 name: <%= name %><br>phone: <%= phone %> 
             </div>
         </script>
 
         <script type="text/template" id="main-item-template">
+            <input type="button" class="btn edit-btn" value="EDIT"/>
             <h2 class="name">
                 <%= name %>
             </h2>
@@ -58,6 +64,13 @@
             <div class="bio">
                 <%= bio %>
             </div>
+        </script>
+
+        <script type="text/template" id="edit-form-template">
+            <input type="text" class="name" placeholder="type your name here or whatever..."/>
+            <input type="text" class="phone" placeholder="*siiiigh* this is for your phone number..." />
+            <textarea class="bio" placeholder="add biography data here... (or not)"></textarea>
+            <input type="button" class="done-btn btn" value="DONE"/>
         </script>
 
         <!-- build:js scripts/vendor.js -->
