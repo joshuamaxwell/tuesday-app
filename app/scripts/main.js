@@ -21,10 +21,6 @@ $('.add-new-btn').on('click', function(){
     //hides the panel
     $('.edit-panel').addClass('collapse');  //remove the containing div
     $('.add-new-btn').attr({value: 'ADD'});
-
   }
-
-
-  
 })
 

@@ -30,11 +30,13 @@ var EditView = Backbone.View.extend({
       phone: phone, 
       bio: bio
     });
-    window.contacts.push( [this.model] ); //add to the Colletion
+    if ( _.contains(window.contacts.models, this.model) === false){
+      window.contacts.push( [this.model] ); //add to the Colletion
+      new ListView({model: this.model});
+    }
     this.$el.parent().toggleClass('collapse');
     this.remove();
     $('.add-new-btn').attr({value: 'ADD'});
-    new ListView({model: this.model});
   }
 
 })
