@@ -25,17 +25,21 @@ var EditView = Backbone.View.extend({
     var name = this.$el.find('.name').val();
     var phone = this.$el.find('.phone').val();
     var bio = this.$el.find('.bio').val();
+
     this.model.set({
       name: name, 
       phone: phone, 
       bio: bio
     });
-    if ( _.contains(window.contacts.models, this.model) === false){
-      window.contacts.push( [this.model] ); //add to the Colletion
-      new ListView({model: this.model});
-    }
-    this.$el.parent().toggleClass('collapse');
+
+    var freshModel = contacts.add( this.model ); //add to the Colletion
+    
+    if ( freshModel.isNew()) new ListView({model: freshModel});
+    freshModel.save()
+
+
     this.remove();
+    this.$el.parent().toggleClass('collapse');
     $('.add-new-btn').attr({value: 'ADD'});
   }
 
