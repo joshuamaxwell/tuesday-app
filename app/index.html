@@ -28,19 +28,43 @@
 
 
         <div class="hero-unit">
-          <h1>'Allo, 'Allo!</h1>
-          <p>You now have</p>
-          <ul>
-            <li>HTML5 Boilerplate</li>
-            <li>Sass with Compass</li>
-            <li>Modernizr</li>
-          </ul>
+            <div class="main-contact empty">
+                <input type="button" value="ADD" class="add-new-btn"/>
+            </div>
+            <div class="edit-form collapse">
+                <input type="text" class="name" placeholder="type your name here or whatever..."/>
+                <input type="text" class="phone" placeholder="*siiiigh* this is for your phone number..." />
+                <textarea class="bio" placeholder="add biography data here... (or not)"></textarea>
+            </div>
+            <div class="contacts-list">
+              <!-- items get appended here -->
+            </div>
         </div>
+        <script type="text/template" id="list-item-template">
+            <img class="avatar" src="<%= avatar %>"/>
+            <div class="details">
+                name: <%= name %><br>phone: <%= phone %> 
+            </div>
+        </script>
 
+        <script type="text/template" id="main-item-template">
+            <h2 class="name">
+                <%= name %>
+            </h2>
+            <img class="avatar" src="<%= avatar %>"/>
+            <div class="details">
+                phone: <%= phone %> 
+            </div>
+            <div class="bio">
+                <%= bio %>
+            </div>
+        </script>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -55,6 +79,11 @@
         </script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/data.js"></script>
+        <script src="scripts/contact-model.js"></script>
+        <script src="scripts/list-view.js"></script>
+        <script src="scripts/main-view.js"></script>
+        <script src="scripts/edit-view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
