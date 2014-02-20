@@ -1,9 +1,5 @@
 var Contact = Backbone.Model.extend({
 
-  // url: function(){
-  //   return 'http://0.0.0.0:3000/collections/contacts/' + this.id
-  // },
-
   idAttribute: '_id',
 
   defaults: {

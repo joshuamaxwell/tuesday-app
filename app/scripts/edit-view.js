@@ -34,12 +34,12 @@ var EditView = Backbone.View.extend({
 
     var freshModel = contacts.add( this.model ); //add to the Colletion
     
-    if ( freshModel.isNew()) new ListView({model: freshModel});
+    if ( freshModel.isNew() ) new ListView({model: freshModel});
     freshModel.save()
 
 
-    this.remove();
     this.$el.parent().toggleClass('collapse');
+    this.remove();
     $('.add-new-btn').attr({value: 'ADD'});
   }
 

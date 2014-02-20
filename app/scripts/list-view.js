@@ -16,12 +16,26 @@ var ListView = Backbone.View.extend({
   },
 
   events: {
-    "click" : "showInMainView"
+    "click" : "showInMainView",
+    "click .edit-btn" : "editContact",
+    "click .delete-btn" : "deleteContact"
   },
 
   showInMainView: function() {
     // console.log('you clicked on ', this);
     new MainView({model: this.model});
+  },
+
+  editContact: function() {
+    $('.edit-panel').removeClass('collapse');
+    $('.add-new-btn').val('CANCEL');
+    new EditView({model: this.model});
+  }, 
+
+  deleteContact: function() {
+    this.remove();
+    this.model.destroy();
+    
   }
 
 })

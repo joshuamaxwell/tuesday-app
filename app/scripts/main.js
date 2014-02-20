@@ -1,15 +1,19 @@
-window.contacts = new ContactsCollection(  );
+window.contacts = new ContactsCollection();
 
 contacts.fetch({
   success: function(){
-    contacts.each(function(contact) {
-      new ListView ({model: contact});
-    });
+    console.log('is it empty?: ', contacts.isEmpty());
+    if( !contacts.isEmpty() ){
+      contacts.each(function(contact) {
+        new ListView ({model: contact});
+        console.log('this happened');
+      });
+    };
   },
   error: function() {
-    console.log('WHOAAAA theres a problem');
+    console.log('WHOAAAA theres a problem with the fetch');
   }
-})
+});
 
 $('.add-new-btn').on('click', function(){
   if ( $('.edit-panel').hasClass('collapse')){

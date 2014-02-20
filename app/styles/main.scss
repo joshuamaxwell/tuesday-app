@@ -179,6 +179,7 @@ body {
 }
 .list-item {
     @include clearfix;
+    position: relative;
     width: 260px;
     height: 200px;
     margin: 10px auto;
@@ -189,9 +190,30 @@ body {
     &:hover {
         cursor: pointer;
         outline: 2px solid rgba(0, 255, 0, 0.15);
+        .buttons {
+            visibility: visible;
+        }
     }
     &:first-child {
         margin-top: 0px;
+    }
+    .buttons {
+        visibility: hidden;
+        width: 30px;
+        position: absolute;
+        right: 10px;
+        .fa {
+            display: block;
+            position: relative;
+            height: 30px;
+            margin: 10px 0;
+            font-size: 27px;
+            color: $text-color-light;
+            &:hover {
+                text-shadow: -2px 2px black;
+                font-size: 29px;
+            }
+        }
     }
     .avatar {
         width: 100px;
