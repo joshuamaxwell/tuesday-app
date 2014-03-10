@@ -1,4 +1,4 @@
-var EditView = Backbone.View.extend({
+var EditView = Parse.View.extend({
   
   className: 'edit-form',
 
@@ -22,6 +22,10 @@ var EditView = Backbone.View.extend({
   },
 
   addNew: function(){
+    if(!this.model) {
+      this.model = new Contact(this.model)
+    }
+
     var name = this.$el.find('.name').val();
     var phone = this.$el.find('.phone').val();
     var bio = this.$el.find('.bio').val();
@@ -32,10 +36,14 @@ var EditView = Backbone.View.extend({
       bio: bio
     });
 
-    var freshModel = contacts.add( this.model ); //add to the Colletion
-    
-    if ( freshModel.isNew() ) new ListView({model: freshModel});
-    freshModel.save()
+
+    this.model.setACL(new Parse.ACL(Parse.User.current()));
+
+    contacts.add( this.model ); //add to the Colletion
+
+    // this next commented out step happens on the collections 'add' event now
+    // if ( this.model.isNew() ) new ListView({model: this.model});
+    this.model.save()
 
 
     this.$el.parent().toggleClass('collapse');

@@ -1,7 +1,8 @@
-var Contact = Backbone.Model.extend({
+Parse.initialize("g3WNdnieZAfkhYSnypRVTViPpJq1LlQXv3wBW4yn", "eDRFfB6fxvndzk3Jakpa4uqjQsxUVL8KQb1TJfb3");
 
-  idAttribute: '_id',
+var Contact = Parse.Object.extend({
 
+  className: 'Contact',
   defaults: {
     name: '',
     phone: '',
@@ -11,8 +12,12 @@ var Contact = Backbone.Model.extend({
 
 })
 
-var ContactsCollection = Backbone.Collection.extend ({
+var ContactsCollection = Parse.Collection.extend ({
   model: Contact,
-  url: 'http://0.0.0.0:3000/collections/contacts'
-
+  initialize: function(){
+    this.on('add', function(contact){      
+      new ListView ({model: contact});
+      console.log('this happened');
+    })
+  }
 })

@@ -1,4 +1,4 @@
-var ListView = Backbone.View.extend({
+var ListView = Parse.View.extend({
   className: 'list-item',
 
   renderTemplate: _.template($('#list-item-template').text()),
@@ -6,7 +6,7 @@ var ListView = Backbone.View.extend({
   initialize: function () {
     this.render();
     $('.contacts-list').prepend(this.el);
-    this.listenTo(this.model, "change", this.render);
+    this.on("change", this.render);
 
   },
 
@@ -23,13 +23,13 @@ var ListView = Backbone.View.extend({
 
   showInMainView: function() {
     // console.log('you clicked on ', this);
-    new MainView({model: this.model});
+    new DetailView({model: this.model});
   },
 
   editContact: function() {
-    $('.edit-panel').removeClass('collapse');
-    $('.add-new-btn').val('CANCEL');
-    new EditView({model: this.model});
+    // $('.edit-panel').removeClass('collapse');
+    // $('.add-new-btn').val('CANCEL');
+    // new EditView({model: this.model});
   }, 
 
   deleteContact: function() {

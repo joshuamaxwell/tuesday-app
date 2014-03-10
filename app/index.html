@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>tuesday app</title>
+        <title>contacts</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -28,9 +28,20 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
-        <div class="hero-unit">
-            <h1 class="title">tuesday-app</h1>
+        <div class="login">
+            <p class="please-login">
+                Welcome! please log in or register.
+            </p>
+            <input type="text" class="username" placeholder="username"/>
+            <input type="password" class="password" placeholder="password"/>
+            <input type="button" class="login-btn btn" value="LOGIN / REGISTER"/>
+            <div class="login-error"></div>
+            <div class="register-user">
+                <input type="button" class="register-btn btn" value="REGISTER"/>
+            </div>
+        </div>
+        <div class="hero-unit main-view">
+            <h1 class="title"><span>contacts</span><span class='logout-btn'>logout</span></h1>
             <div class="contacts-list">
             <!-- items get appended here -->
             </div>
@@ -41,8 +52,8 @@
                 <div class="edit-panel collapse">
                         <!-- where the edit-form is injected  -->
                 </div>
-                <div class="main-contact empty">
-                <!-- main view of contact will appear here -->
+                <div class="detail-contact empty">
+                <!-- detail view of contact will appear here -->
                 </div>
             </div>
         </div>
@@ -59,7 +70,7 @@
             </div>
         </script>
 
-        <script type="text/template" id="main-item-template">
+        <script type="text/template" id="detail-item-template">
             <input type="button" class="btn edit-btn" value="EDIT"/>
             <h2 class="name">
                 <%= name %>
@@ -84,7 +95,7 @@
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
-        <script src="bower_components/backbone/backbone.js"></script>
+        <script src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -102,7 +113,7 @@
         <script src="scripts/data.js"></script>
         <script src="scripts/contact-model.js"></script>
         <script src="scripts/list-view.js"></script>
-        <script src="scripts/main-view.js"></script>
+        <script src="scripts/detail-view.js"></script>
         <script src="scripts/edit-view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->

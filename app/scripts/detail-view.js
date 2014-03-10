@@ -1,13 +1,13 @@
-var MainView = Backbone.View.extend({
+var DetailView = Parse.View.extend({
   
-  renderTemplate: _.template($('#main-item-template').text()),
+  renderTemplate: _.template($('#detail-item-template').text()),
 
-  className: 'main-contact',
+  className: 'detail-contact',
 
   initialize: function(){
     this.render();
-    $('.main-contact').replaceWith( this.el );
-    this.listenTo(this.model, "change", this.render);
+    $('.detail-contact').replaceWith( this.el );
+    this.on("change", this.render);
   },
 
   events: {
